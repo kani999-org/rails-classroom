@@ -1,0 +1,56 @@
+name: Create database test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  composition:
+    runs-on: ubuntu-latest
+    env:
+       working-directory: ./myapp
+
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Ruby 2.7
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+
+      # PostrgreSQL client already installed
+      # - name: Install PostgreSQL 11 client
+      #   run: |
+      #     sudo apt-get -yqq install libpq-dev
+
+      - name: Bundle install
+        working-directory: ${{env.working-directory}}
+        run: |
+          bundle install
+
+      - name: Setup Database configuration file
+        working-directory: ${{env.working-directory}}
+        run: |
+          cp config/database.yml.github-actions config/database.yml
+
+      - name: Create database
+        working-directory: ${{env.working-directory}}
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          RAILS_ENV: test
+        run: |
+          bundle exec rake db:create
