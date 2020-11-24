@@ -24,17 +24,23 @@
 - **Goal** - Create, Read, Update, Deastroy and List articles.
 
 1. Declaring resources as roots
-  - Add `articles` as resources to `config/routes` (see commit history)
-  - ```
-           Prefix Verb   URI Pattern                  Controller#Action
-    welcome_index GET    /welcome/index(.:format)     welcome#index
-         articles GET    /articles(.:format)          articles#index
+   - Add `articles` as resources to `config/routes` (see commit history)
+   - ```
+            Prefix Verb   URI Pattern                  Controller#Action
+     welcome_index GET    /welcome/index(.:format)     welcome#index
+          articles GET    /articles(.:format)          articles#index
                   POST   /articles(.:format)          articles#create
-      new_article GET    /articles/new(.:format)      articles#new
-     edit_article GET    /articles/:id/edit(.:format) articles#edit
-          article GET    /articles/:id(.:format)      articles#show
-                  PATCH  /articles/:id(.:format)      articles#update
-                  PUT    /articles/:id(.:format)      articles#update
-                  DELETE /articles/:id(.:format)      articles#destroy
-             root GET    /                            welcome#index
+       new_article GET    /articles/new(.:format)      articles#new
+      edit_article GET    /articles/:id/edit(.:format) articles#edit
+           article GET    /articles/:id(.:format)      articles#show
+                   PATCH  /articles/:id(.:format)      articles#update
+                   PUT    /articles/:id(.:format)      articles#update
+                   DELETE /articles/:id(.:format)      articles#destroy
+              root GET    /                            welcome#index
 
+1. Creating Controller
+    - `rails generate controller Articles`
+       - creates empty controller
+    - If you refresh http://localhost:3000/articles/new now, you'll get a new error
+      - Uknown Action - action new could not be found for ArticlesController
+      - So lets create our action
