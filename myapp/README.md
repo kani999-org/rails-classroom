@@ -44,3 +44,13 @@
     - If you refresh http://localhost:3000/articles/new now, you'll get a new error
       - Uknown Action - action new could not be found for ArticlesController
       - So lets create our action
+
+1. Create `new` action
+    - add action to controller
+        - `app/controllers/articles_controller.rb` 
+    - Create **new** form
+      - define view, which should be displayed when action `new` is triggered
+        - `app/views/articles/new.html.erb`
+      - `http://localhost:3000/articles/new`
+    - The action for creating the article wont work. But **why**?
+       - Because we did not defined the **create** action!
