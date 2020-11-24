@@ -60,3 +60,16 @@
         - `app/controllers/articles_controller.rb` 
     - We added `create` actions, which is triggered by subbmitting the `new` form
       - for simplicity we just display the submitted parameters for now. **The object is not created yet!** But we are almost there!
+
+1. Creating Article **Model** 
+    - Models in Rails corresponds to database tables. 
+    - Rails provides a generator for creating models:
+        - `$ rails generate model Article title:string text:text`
+            - Creates `Article` model, together with a `title` attribute of type string, and a `text` attribute of type text
+            - Attributes are automatically added to the `articles` table in the **database** and mapped to the Article model
+    - Important files:
+        - Model - `app/models/article.rb` 
+        - Database migration - `db/migrate/<timestamp>_create_articles.rb`
+          - run database migration:
+            - `rails db:migrate`
+    
