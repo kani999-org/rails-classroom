@@ -54,3 +54,9 @@
       - `http://localhost:3000/articles/new`
     - The action for creating the article wont work. But **why**?
        - Because we did not defined the **create** action!
+
+1. Add `create` action
+    - add action to controller
+        - `app/controllers/articles_controller.rb` 
+    - We added `create` actions, which is triggered by subbmitting the `new` form
+      - for simplicity we just display the submitted parameters for now. **The object is not created yet!** But we are almost there!
