@@ -13,6 +13,12 @@ class ArticlesController < ApplicationController
         redirect_to @article
     end
 
+    # /articles/id
+    def show
+        # find which article you want to display
+        @article = Article.find(params[:id])
+    end
+
     private
     # We have to define our permitted controller parameters to prevent wrongful mass assignment.
     # In this case, we want to both allow and require the title and text parameters for valid use of create. 

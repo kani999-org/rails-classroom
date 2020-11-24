@@ -76,3 +76,8 @@
 1. Saving data in the controller (and display it)
   - Edit controller `create` action
     - Add action for storing the Article into a database
+  - Display the stored `article`
+    - We need `show` action for our `article` controller
+    - Then we create a `view` template 
+  - **Tadáááá**
+    - `http://localhost:3000/articles/1`
