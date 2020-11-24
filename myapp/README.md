@@ -73,3 +73,6 @@
           - run database migration:
             - `rails db:migrate`
     
+1. Saving data in the controller (and display it)
+  - Edit controller `create` action
+    - Add action for storing the Article into a database
