@@ -81,3 +81,8 @@
     - Then we create a `view` template 
   - **Tadáááá**
     - `http://localhost:3000/articles/1`
+
+---
+- Bookmark: (story continues there)
+- https://guides.rubyonrails.org/getting_started.html#listing-all-articles
+---
